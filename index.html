@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The XXI Parade</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+body, html {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  background-color: #F5EFE6;
+  color: #2F4156;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Playfair Display", serif;
+}
+
+/*header Image*/
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("header1.jpg");
+  min-height: 85%;
+}
+
+/*Hide tab content */
+.menu {
+	display: none;
+}
+
+/*blue beige theme*/
+:root {
+  --navy: #2F4156;
+  --dusty-blue: #567C8D;
+  --light-blue: #C8D9E6;
+  --beige: #F5EFE6;
+  --cream: #FFFDF8;
+}
+
+
+/* Navigation bar */
+.w3-black {
+  background-color: var(--navy) !important;
+}
+
+
+/* Title tags */
+.w3-tag {
+  background-color: var(--dusty-blue) !important;
+  color: white !important;
+}
+
+
+/* Main background */
+.w3-sand {
+  background-color: var(--beige) !important;
+}
+
+
+/* Cards */
+.w3-card {
+  background-color: var(--cream) !important;
+  border-radius: 20px;
+}
+
+
+/* Grey text */
+.w3-text-grey {
+  color: var(--dusty-blue) !important;
+}
+
+
+/* Buttons */
+.w3-button:hover {
+  background-color: var(--dusty-blue) !important;
+  color: white !important;
+}
+
+
+/* Images */
+img {
+  border-radius: 20px;
+}
+
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#readme" class="w3-button w3-block w3-black">READ ME</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#rundown" class="w3-button w3-block w3-black">RUNDOWN</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#littlenote" class="w3-button w3-block w3-black">HER POV</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">Specifically made with love</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white">20' 09' 05'</span>
+  </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- Countdown Section -->
+<section style="text-align:center;padding:50px 10px">
+  <p>something special is coming...</p>
+  <h2 id="title">counting down to your day ♡</h2>
+  <div id="countdown"></div>
+</section>
+
+<script>
+const date=new Date("2026-09-20T00:00:00").getTime();
+setInterval(()=>{
+ let t=date-new Date().getTime();
+ if(t<=0){
+  title.innerHTML="happy birthday ♡";
+  countdown.innerHTML="today is your special day 🎂";
+  return;
+ }
+ let d=Math.floor(t/86400000),
+ h=Math.floor(t/3600000)%24,
+ m=Math.floor(t/60000)%60,
+ s=Math.floor(t/1000)%60;
+ countdown.innerHTML=`${d} days · ${h} hours · ${m} minutes · ${s} seconds`;
+},1000);
+</script>
+<!-- Countdown Close -->
+
+<!-- Read Me Container -->
+<div class="w3-container" id="readme">
+  <div class="w3-content" style="max-width:700px">
+
+    <h5 class="w3-center w3-padding-64">
+      <span class="w3-tag w3-wide">READ ME!</span>
+    </h5>
+
+    <!--password for wish-->
+
+    <div id="lockScreen" class="w3-center">
+
+<h2>🔒</h2>
+
+<p>This letter isn't meant to be read just yet.</p>
+
+<p>Open it together with your girl. 🤍</p>
+
+<input
+id="password"
+type="password"
+placeholder="Enter Password">
+
+<br><br>
+
+<button class="w3-button w3-black"
+onclick="unlockLetter()">
+
+Unlock
+
+</button>
+
+<p id="wrongPassword"
+style="color:red;display:none;">
+
+Wrong password.
+
+</p>
+
+</div>
+
+<!-- close password-->
+
+<!-- read me letter -->
+
+    <div id="letter" style="display:none;">
+
+    <p>Happy Birthday my precious sunshine 🤍</p>
+
+    <p>Today is your day.</p>
+
+    <p>Before we celebrate you, there's something I've been wanting to tell you.</p>
+
+    <p>There are so many things I want to say today yet I still don't think words will ever be enough to describe how grateful I am for you. Sometimes I sit and think about us and it still feels unreal. Out of all the people in this world, I never imagined that the little boy I met sixteen years ago would one day become the person I love the most. We were just children back then. We didn't know what life had planned for us. We laughed over the smallest things, argued over the silliest ones and made memories without ever realizing they would one day become stories we'd hold so close to our hearts. Somehow without either of us noticing, we grew up together. </p>
+
+    <p>Sixteen years. To everyone else, it's just a number. But to me, it carries an entire lifetime of memories. It carries our childhood, our teenage years, the different versions of ourselves, the embarrassing phases we'd rather forget, the moments we laughed until our stomachs hurt, the times we drifted apart and the moments life quietly led us back to each other again. Somewhere along the way, friendship became comfort, comfort became home and home slowly became love. Sometimes I wonder how lucky I am because not everyone gets the chance to fall in love with someone who has been part of their life for almost forever. You're not just my boyfriend. You're my home. You're the person who has seen every version of me—the good ones, the messy ones, the quiet ones and somehow you still chose to stay. You've watched me grow, and I've had the privilege of watching you become the incredible man you are today. </p>
+
+    <p>Every year that passes, I become even more proud of you. I know life hasn't always been easy for you. There are days when you overthink, days when you're exhausted, days when things don't go the way you hoped they would. I wish I could take every burden off your shoulders but since I can't, I'll spend the rest of my life reminding you that you never have to carry them alone. I hope this new chapter of your life is gentle with you. I hope opportunities find you. I hope happiness keeps choosing you. I hope your heart is always filled with peace, your mind with confidence and your days with people who see the beautiful soul that I see every single day</p>
+
+    <p>Thank you for loving me. Thank you for choosing me. Thank you for making me feel safe, appreciated and loved in way I never knew I needed. Thank you for becoming one of the greatest blessings in my life. Your existence has changed my life more than you'll probably ever realize. You make ordinary days feel special and difficult days feel a little less heavy simply because you're beside me. I'll never stop cheering for you, celebrating every achievement, holding your hand through every challenge and reminding you that you are enough—even on the days you struggle to believe it yourself.</p>
+
+      <p>I want more birthdays with you.</p>
+
+      <p>More random late-night conversations. </p>
+
+      <p>More photos we'll laugh at years later.</p>
+
+      <p>More sunsets we'll quietly watch together.</p>
+
+      <p>More adventures we'll laugh about years later.</p>
+
+      <p>More photos we'll look back on and wonder why we thought those poses looked good.</p>
+
+      <p>More "remember when..." moments</p>
+
+      <p>More ordinary days that somehow become extraordinary simply because I'm spending them with you.</p>
+
+      <p>If someone had told the younger versions of us that one day we'd celebrate your birthday not just as childhood friends but as two people who deeply in love, I don't think either of us would've believed it. But here we are. And if I'm being honest, I wouldn't trade this story for anything.</p>
+
+      <p>If I had been given the chance to choose this life all over again, I would still choose it.</p>
+
+      <p>Not because every chapter was beautiful.</p>
+
+      <p>Not because every chapter was easy.</p>
+
+      <p>But because in every chapter no matter how painful or difficult it was, it somehow led me to you.</p>
+
+      <p>I'd still walk through every hardship.</p>
+
+      <p>I'd still endure every tear.</p>
+
+      <p>I'd still survive every difficult day.</p>
+
+      <p>Because if I knew that in the end I'd find my way back to you, then every single step would still be worth it.</p>
+
+      <p>I'd still choose this life.</p>
+
+      <p>I'd still choose you.</p>
+
+      <p>Every single time.</p>
+
+      <p>I don't know what our future will look like, but I know one thing for certain—I want every version of it with you. I want to grow old beside you. I want to build a home with you, argue over the smallest things and make up five minutes later, celebrate every little achievement, support each other's biggest dreams and one day if Allah wills it, become your wife. I want a lifetime where no matter how much we change, we never stop choosing each other.</p>
+
+      <p>Happy Birthday Muhammad Aqiell Rustam.</p>
+
+      <p>Thank you for growing up with me.</p>
+
+      <p>Thank you for staying.</p>
+
+      <p>Thank you for becoming my favorite chapter after being my favorite childhood memory.</p>
+
+      <p>Forever grateful that sixteen years ago our story began.</p>
+
+      <p>And forever grateful that today...</p>
+
+      <p>I get to call you mine.</p>
+
+      <p>With all my love,</p>
+
+      <p>Your girl. 🤍</p>
+</div>
+
+<!-- Close Read me Letter -->
+
+<!-- Rundown Container -->
+<div class="w3-container" id="rundown">
+  <div class="w3-content" style="max-width:700px">
+ 
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">RUNDOWN</span></h5>
+  
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Our Plan');" id="myLink">
+        <div class="w3-col s6 tablink">Our Plan</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Outfit');">
+        <div class="w3-col s6 tablink">Today's Outfit Inspo</div>
+      </a>
+    </div>
+
+    <div id="Our Plan" class="w3-container menu w3-padding-48 w3-card">
+      <h5>10 a.m.</h5>
+      <p class="w3-text-grey">Arrived at UiTM Shah Alam🎓</p><br>
+    
+      <h5>1:00 p.m.</h5>
+      <p class="w3-text-grey">Go to Central i-City Shah Alam🚗</p><br>
+    
+      <h5>1:20 - 2:15 p.m.</h5>
+      <p class="w3-text-grey">Lunch - Mee Hiris China Muslim</p><br>
+    
+      <h5>2:15 - 4:15 p.m.</h5>
+      <p class="w3-text-grey">Karaoke - Manekineko🎤</p><br>
+    
+      <h5>4:15 - 4:45 p.m.</h5>
+      <p class="w3-text-grey">Photobooth - Say Cheese Studio🎞️</p><br>
+ 
+      <h5>4:45 - 5:15 p.m.</h5>
+      <p class="w3-text-grey">Arcade - PALO🕹️</p><br>
+
+      <h5>5:15 - 5:45 p.m.</h5>
+      <p class="w3-text-grey">Suprise Time🎁</p><br>
+
+      <h5>5:45 p.m.</h5>
+      <p class="w3-text-grey">Back Home 🚗</p><br>
+    </div>
+
+    <div id="Outfit" class="w3-container menu w3-padding-48 w3-card">
+
+  <img src="outfit1.jpeg" 
+  style="width:100%; margin-bottom:20px;">
+
+  <img src="outfit2.jpeg" 
+  style="width:100%; margin-bottom:20px;">
+
+  <img src="outfit3.jpeg" 
+  style="width:100%; margin-bottom:20px;">
+  
+  </div>
+</div>
+<!-- Close Rundown Container -->
+
+<!-- Her POV Container -->
+<div class="w3-container" id="littlenote" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+
+    <h5 class="w3-center w3-padding-48">
+      <span class="w3-tag w3-wide">HER POV</span>
+    </h5>
+
+    <p class="w3-center">
+      I made something for you. 🤍
+    </p>
+
+    <video id="birthdayVideo" controls playsinline
+style="width:100%; border-radius:20px; margin-top:20px;">
+  <source src="birthday video.mp4" type="video/mp4">
+</video>
+
+    <p class="w3-center w3-text-grey" style="margin-top:20px;">
+      XXI, Chapter 1
+    </p>
+
+  </div>
+</div>
+<!-- End page content -->
+  
+<audio id="bgMusic" loop>
+    <source src="sampai jadi debu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("tablink");
+
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className =
+      tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+
+document.getElementById("myLink").click();
+
+//password wish section
+let wishOpened = false;
+
+function unlockLetter(){
+  var pass = document.getElementById("password").value;
+
+  if(pass === "05042026"){
+
+    wishOpened = true;
+
+    document.getElementById("bgMusic").play();
+    document.getElementById("lockScreen").style.display = "none";
+    document.getElementById("letter").style.display = "block";
+
+  }else{
+
+    document.getElementById("wrongPassword").style.display = "block";
+
+  }
+}
+
+//video & background music
+const video = document.getElementById("birthdayVideo");
+const music = document.getElementById("bgMusic");
+
+
+// Bila video mula → music pause
+video.onplay = () => {
+  music.pause();
+};
+
+
+// Bila video habis → music HANYA sambung
+// kalau Wish dah pernah dibuka
+video.onended = () => {
+
+  if(wishOpened){
+    music.play();
+  }
+
+};
+
+</script>
